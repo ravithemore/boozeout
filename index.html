@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boozeout - Bottoms Up, Price Down</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFF6E9; /* Cream */
+            color: #111111; /* Black */
+        }
+        .bg-gradient-boozeout {
+            background: linear-gradient(135deg, #FF6600 0%, #FF8533 100%);
+        }
+        .brand-orange { color: #FF6600; }
+        .btn-primary {
+            background-color: #FF6600;
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #E65C00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 102, 0, 0.3);
+        }
+        .btn-secondary {
+            background-color: #111111;
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #333333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .phone-mockup {
+            position: relative;
+            margin: 0 auto;
+            width: 280px;
+            height: 560px;
+            background: #111;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.4);
+            border: 2px solid #333;
+            padding: 10px;
+        }
+        .phone-screen {
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #FF6600; /* Orange */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes blob {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.05); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="/assets/WhatsApp_Image_2025-08-24_at_13.51.51-removebg-preview.png" alt="Boozeout Logo" class="h-12">
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#how-it-works" class="text-gray-600 hover:text-[#FF6600] transition-colors">How It Works</a>
+                    <a href="#features" class="text-gray-600 hover:text-[#FF6600] transition-colors">Features</a>
+                </nav>
+                <a href="https://linktr.ee/boozeout.in" class="hidden md:inline-block px-5 py-2 rounded-lg btn-primary font-semibold">Download Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="relative min-h-screen bg-gradient-to-br from-[#FFF6E9] to-[#FFE9D1] pt-24 flex items-center justify-center text-center overflow-hidden">
+        <!-- Decorative Blobs -->
+        <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-orange-200 rounded-full opacity-50 animate-blob"></div>
+        <div class="absolute top-1/2 right-1/4 w-48 h-48 bg-orange-200 rounded-full opacity-50 animate-blob animation-delay-3000"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-24 h-24 bg-black rounded-full opacity-10 animate-blob animation-delay-5000"></div>
+
+        <div class="container mx-auto px-6 z-10">
+            <div class="max-w-3xl mx-auto">
+                <img src="/assets/WhatsApp_Image_2025-08-24_at_13.51.51-removebg-preview.png" alt="Boozeout Main Logo" class="h-28 md:h-36 mx-auto mb-6">
+                <h1 class="text-5xl md:text-7xl font-black text-black leading-tight mb-4 animate-fade-in-down">
+                    Bottoms Up, <br class="md:hidden"> <span class="brand-orange">Price Down.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-700 max-w-xl mx-auto mb-8">
+                    Because paying full price is boring. Get instant discounts at your favorite shops. Simple, fast, and ridiculously rewarding.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://apps.apple.com/in/app/boozeout/id6741483755" class="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-lg btn-primary font-bold text-lg">
+                        <i data-lucide="apple" class="w-6 h-6"></i>
+                        <span>Download for iOS</span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.boozeout.user&hl=en_IN" class="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-lg btn-secondary font-bold text-lg">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M20.55 4.87a.98.98 0 0 0-.8-.47H4.25a.98.98 0 0 0-.8.47L2 12l1.45 7.63a.98.98 0 0 0 .8.47h15.5a.98.98 0 0 0 .8-.47L22 12l-1.45-7.13zM8.22 6.5l4.33 4.34L16.89 6.5h2.18l-4.7 4.7 4.8 4.8h-2.18l-4.4-4.4-4.22 4.22H4.93l4.8-4.8-4.7-4.7h2.19z"></path></svg>
+                        <span>Download for Android</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. How It Works Section -->
+    <section id="how-it-works" class="py-20 md:py-28 bg-[#FFFFFF]">
+        <div class="container mx-auto px-6 text-center section">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">It's Dangerously Simple.</h2>
+            <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">Three steps between you and sweet, sweet savings. You can handle that, right?</p>
+            <div class="grid md:grid-cols-3 gap-12 md:gap-8">
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-orange-100 rounded-full p-6 mb-4 text-[#FF6600]">
+                        <span class="text-5xl">1️⃣</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Select a Shop</h3>
+                    <p class="text-gray-500">Find a partnered shop nearby. We've got the cool ones.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-orange-100 rounded-full p-6 mb-4 text-[#FF6600]">
+                        <span class="text-5xl">2️⃣</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Enter Bill Amount</h3>
+                    <p class="text-gray-500">Type in what you owe. No math required, we promise.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="bg-orange-100 rounded-full p-6 mb-4 text-[#FF6600]">
+                        <span class="text-5xl">3️⃣</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Pay & Save Instantly</h3>
+                    <p class="text-gray-500">Hit pay. Watch the price drop. Feel like a genius.</p>
+                </div>
+            </div>
+             <p class="mt-12 text-2xl font-semibold">Simple. Safe. Rewarding.</p>
+        </div>
+    </section>
+
+    <!-- 3. Features Section -->
+    <section id="features" class="py-20 md:py-28 bg-[#FFF6E9]">
+        <div class="container mx-auto px-6 section">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold">Why Boozeout? (Besides the Obvious)</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mt-4">We built this for people who like money. And saving it. And having more of it.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="bg-orange-100 text-[#FF6600] rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                        <i data-lucide="percent" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Instant Discounts</h3>
+                    <p class="text-gray-500">Save up to 10% the second you pay. No waiting, no points, just cash back in your wallet.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="bg-orange-100 text-[#FF6600] rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Cashless Convenience</h3>
+                    <p class="text-gray-500">Your phone is your wallet. Select, pay, and you're out. Faster than finding loose change.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="bg-orange-100 text-[#FF6600] rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Nearby Shops</h3>
+                    <p class="text-gray-500">Our map shows you all the sweet deals around you. Saving money is an adventure.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+                    <div class="bg-orange-100 text-[#FF6600] rounded-lg w-12 h-12 flex items-center justify-center mb-4">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Secure Payments</h3>
+                    <p class="text-gray-500">Your data is locked down tighter than a drum. Industry-standard security, for your peace of mind.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--  -->
+
+    <!-- 5. Testimonials Section (Placeholder) -->
+    <section class="py-20 md:py-28 bg-[#FFF6E9]">
+        <div class="container mx-auto px-6 section text-center">
+            <div class="max-w-3xl mx-auto">
+                <i data-lucide="message-circle" class="w-12 h-12 text-[#FF6600] mx-auto mb-4"></i>
+                <blockquote class="text-2xl md:text-3xl font-semibold italic text-black">
+                    “Saved ₹500 this month already! It's like finding free money. My only regret is not downloading it sooner.”
+                </blockquote>
+                <p class="mt-6 text-lg font-bold text-gray-700">- A Very Smart Boozeout User</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✨ New Gemini-Powered Savings Forecaster Section -->
+    <section id="gemini-forecaster" class="py-20 md:py-28 bg-[#FFF6E9]">
+        <div class="container mx-auto px-6 text-center section">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">What Will You Do With All The Savings?</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Don't just save money. Give it a glorious purpose. Let our AI-powered genius (a.k.a. Gemini) suggest some brilliant, questionable, or downright hilarious ideas.</p>
+            
+            <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="number" id="monthlySpending" placeholder="Enter your monthly spending (e.g., 10000)" class="w-full px-4 py-3 text-lg border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-[#FF6600] focus:border-[#FF6600] outline-none transition-shadow">
+                    <button id="forecastBtn" class="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 rounded-lg btn-primary font-bold text-lg whitespace-nowrap">
+                        <span>✨</span>
+                        <span>Forecast My Savings</span>
+                    </button>
+                </div>
+                
+                <div id="forecastResult" class="mt-6 text-left hidden">
+                    <div id="loader" class="loader hidden"></div>
+                    <div id="resultText" class="text-gray-700 bg-orange-50 p-6 rounded-lg border border-orange-200"></div>
+                </div>
+                 <p id="errorMessage" class="text-red-500 mt-4 hidden"></p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 7. Call to Action (Download Section) -->
+    <section id="download" class="bg-gradient-boozeout">
+        <div class="container mx-auto px-6 py-20 md:py-24 text-center section">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Stop Leaving Money on the Table.</h2>
+            <p class="text-lg text-white/90 max-w-2xl mx-auto mb-8">Download Boozeout today & start saving instantly. Your wallet will thank you.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://apps.apple.com/in/app/boozeout/id6741483755" class="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-lg bg-white text-[#FF6600] font-bold text-lg hover:bg-gray-100 transition-colors">
+                    <i data-lucide="apple" class="w-6 h-6"></i>
+                    <span>Download for iOS</span>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.boozeout.user&hl=en_IN" class="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-lg btn-secondary font-bold text-lg">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M20.55 4.87a.98.98 0 0 0-.8-.47H4.25a.98.98 0 0 0-.8.47L2 12l1.45 7.63a.98.98 0 0 0 .8.47h15.5a.98.98 0 0 0 .8-.47L22 12l-1.45-7.13zM8.22 6.5l4.33 4.34L16.89 6.5h2.18l-4.7 4.7 4.8 4.8h-2.18l-4.4-4.4-4.22 4.22H4.93l4.8-4.8-4.7-4.7h2.19z"></path></svg>
+                    <span>Download for Android</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer class="bg-black text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-1">
+                    <div class="flex items-center mb-4">
+                         <img src="WhatsApp_Image_2025-08-24_at_13.51.51-removebg-preview.png" alt="Boozeout Logo" class="h-12" style="filter: brightness(0) invert(1);">
+                    </div>
+                    <p class="text-gray-400">Bottoms Up, Price Down.</p>
+                </div>
+                <div class="grid grid-cols-2 md:col-span-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold mb-3">Company</h4>
+                        <ul>
+                            <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">About</a></li>
+                            <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">Partner With Us</a></li>
+                            <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-3">Legal</h4>
+                        <ul>
+                            <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                            <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between">
+                <p class="text-gray-500 text-sm mb-4 md:mb-0">&copy; 2025 Boozeout Inc. All rights reserved. Pay less, live more.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-500 hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        lucide.createIcons();
+
+        // Simple scroll animation
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Gemini API Feature
+        const forecastBtn = document.getElementById('forecastBtn');
+        const monthlySpendingInput = document.getElementById('monthlySpending');
+        const forecastResult = document.getElementById('forecastResult');
+        const loader = document.getElementById('loader');
+        const resultText = document.getElementById('resultText');
+        const errorMessage = document.getElementById('errorMessage');
+
+        forecastBtn.addEventListener('click', async () => {
+            const spending = monthlySpendingInput.value;
+            if (!spending || spending <= 0) {
+                errorMessage.textContent = 'Please enter a valid amount you genius.';
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+            
+            errorMessage.classList.add('hidden');
+            forecastResult.classList.remove('hidden');
+            loader.classList.remove('hidden');
+            resultText.classList.add('hidden');
+            forecastBtn.disabled = true;
+            forecastBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            const savings = Math.round(spending * 0.10); // Assuming a 10% average saving
+            
+            const userQuery = `I'm using a fintech app called Boozeout and I'll save around ${savings} rupees next month. Give me 3 fun, creative, and slightly sarcastic ideas for what to do with that money. The tone should match a modern, playful startup. Make the suggestions interesting and specific to the amount saved. Format the output as a simple paragraph.`;
+
+            try {
+                const generatedText = await callGeminiWithExponentialBackoff(userQuery);
+                resultText.innerHTML = generatedText.replace(/\n/g, '<br>'); // Simple formatting for newlines
+                resultText.classList.remove('hidden');
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                errorMessage.textContent = "Our AI is taking a coffee break. Please try again in a moment.";
+                errorMessage.classList.remove('hidden');
+                forecastResult.classList.add('hidden');
+            } finally {
+                loader.classList.add('hidden');
+                forecastBtn.disabled = false;
+                forecastBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        });
+
+        async function callGeminiWithExponentialBackoff(userQuery, maxRetries = 3) {
+            const apiKey = ""; // Canvas will provide this
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+            };
+            
+            let delay = 1000; // Start with 1 second
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    const candidate = result.candidates?.[0];
+
+                    if (candidate && candidate.content?.parts?.[0]?.text) {
+                        return candidate.content.parts[0].text;
+                    } else {
+                        throw new Error("Invalid response structure from Gemini API");
+                    }
+                } catch (error) {
+                    if (i === maxRetries - 1) throw error; // Last attempt failed, throw error
+                    await new Promise(res => setTimeout(res, delay));
+                    delay *= 2; // Double the delay for the next retry
+                }
+            }
+             throw new Error("Gemini API call failed after multiple retries.");
+        }
+
+    </script>
+</body>
+</html>
+
